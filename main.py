@@ -81,18 +81,16 @@ def main():
     print('Добро пожаловать! Здесь вы можете отслеживать ваши финансы.')
 
     inital_budget, expenses, first_budget = load_budget_data(filepath)
-    if first_budget == 0:
+    if inital_budget == 0:
         inital_budget = float(input('Введите имеющиеся количество денег: '))
         first_budget = inital_budget
     budget = inital_budget
     add_budget = []
 
     while True:
-        print("\nЧтобы вы хотел сделать ?")
-        print("1. Добавить траты")
-        print("2. Показать оставшийся бюджет")
-        print("3. Обновить бюджет")
-        print("3. Выход")
+
+        print("\nЧтобы вы хотел сделать ?\n1. Добавить траты\n2. Показать \
+              оставшийся бюджет\n3. Обновить бюджет\n4. Выход")
         choice = int(input("Выберите действие (1/2/3/4): "))
 
         if choice == 1:

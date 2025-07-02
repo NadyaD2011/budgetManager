@@ -1,0 +1,10 @@
+{
+    "first_budget": 1234.0,
+    "initial_budget": 2345.0,
+    "expenses": [
+        {
+            "description": "Yfpdfybt",
+            "amount": 123.0
+        }
+    ]
+}

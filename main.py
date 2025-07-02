@@ -30,7 +30,7 @@ def show_budget_details(first_budget, budget, expenses, add_budget):
     for expense in expenses:
         print(f' - {expense['description']} : {expense['amount']};')
     print(f'Всего потрачено: {get_total_expenses(expenses)}')
-    print(f'Всего добавлено: {sum(add_budget)}')
+    print(f'Всего добавлено: {add_budget}')
     print(f'Текущий бюджет: {budget}')
 
 
@@ -58,10 +58,9 @@ def load_budget_data(filepath):
         return 0, [], 0
 
 
-def update_budget(budget, add_budget):
-    add_money = float(input('Введите количество добавленных денег: '))
-    add_budget.append(add_money)
-    return budget + add_money
+def update_budget(budget):
+    add_budget = float(input('Введите количество добавленных денег: '))
+    return budget + add_budget, add_budget
 
 
 def main():
@@ -85,7 +84,7 @@ def main():
         inital_budget = float(input('Введите имеющиеся количество денег: '))
         first_budget = inital_budget
     budget = inital_budget
-    add_budget = []
+    add_budget = 0
 
     while True:
 
@@ -107,7 +106,7 @@ def main():
         elif choice == 2:
             show_budget_details(first_budget, budget, expenses, add_budget)
         elif choice == 3:
-            budget = update_budget(budget, add_budget)
+            budget, add_budget = update_budget(budget)
         elif choice == 4:
             inital_budget = budget
             save_budget_details(
